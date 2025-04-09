@@ -8,7 +8,7 @@ import AnswerBox from "../components/AnswerBox";
 import ImageButton from "../components/ImageButton";
 import CustomButtonV from "../components/CustomButtonV";
 import ResultSummary from "../components/ResultSummary";
-import { BackendUrl, BackendPort, tLimit } from "../config/config";
+import { tLimit } from "../config/config";
 import AdvancedButtonPanel from "../components/AdvancedButtonPanel";
 
 export default function BibleQuiz() {

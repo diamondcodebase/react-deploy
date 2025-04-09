@@ -17,11 +17,26 @@ export default function HongKongQuiz() {
     // using useEffect to generate initial question set
     const [questions, setQuestions] = useState([]);
 
+    // generate and return an array of random pick questions
+    // const generateRandomQuestions = () => {
+    //     const n = questionsSet.length;
+    //     const resultSet = new Set();
+        
+    //     while (resultSet.size < noOfRound){
+    //         const index = Math.floor(Math.random() * n);
+    //         resultSet.add(questionsSet[index]);
+    //     }
+    //     const resultArr = Array.from(resultSet);
+    //     console.log(resultArr);
+    //     return resultArr;
+    // }
+
     // This option is using default questions stored in ReactJS
     // useEffect(() => {
-    //     var data = generateRandomQuestions()
-    //     setQuestions(data);
-    // });
+    //     // var data = generateRandomQuestions()
+    //     // setQuestions(data);
+    //     setQuestions(generateRandomQuestions());
+    // }, [generateRandomQuestions]);
 
     // This is method to get questionSet from backend and database
     useEffect(() => {
@@ -133,7 +148,7 @@ export default function HongKongQuiz() {
 
     function updateScore(){
         //console.log(userAnswer, modelAnswer, questionContent);
-        if(userAnswer == modelAnswer && isAnswered){
+        if(userAnswer === modelAnswer && isAnswered){
             setScore(score + 1);
          }
     }

@@ -136,20 +136,6 @@ export default function CanadaQuiz() {
         },
     ]
 
-    // generate and return an array of random pick questions
-    // function generateRandomQuestions() {
-    //     const n = questionsSet.length;
-    //     const resultSet = new Set();
-        
-    //     while (resultSet.size < noOfRound){
-    //         const index = Math.floor(Math.random() * n);
-    //         resultSet.add(questionsSet[index]);
-    //     }
-    //     const resultArr = Array.from(resultSet);
-    //     console.log(resultArr);
-    //     return resultArr;
-    // }
-
     function getShowAnswer(res){
         const answer = res ? ("Right") : ("Wrong");
         setShowAnswer(answer);
@@ -178,7 +164,7 @@ export default function CanadaQuiz() {
 
     function updateScore(){
         //console.log(userAnswer, modelAnswer, questionContent);
-        if(userAnswer == modelAnswer && isAnswered){
+        if(userAnswer === modelAnswer && isAnswered){
             setScore(score + 1);
          }
     }
