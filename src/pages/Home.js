@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div>
-      HOME PAGE
-      <Link to="/biblequiz"> GO TO THE BIBLE QUIZ PAGE </Link>
+      <h1>HOME PAGE</h1>
+      <div>
+        <Link to="/biblequiz"> Bible OX </Link>
+        <Link to="/canadaquiz"> Canada OX </Link>
+        <Link to="/hongkongquiz"> Hong Kong OX </Link>
+      </div>
+      
     </div>
   );
 }
