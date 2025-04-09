@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       HOME PAGE
-      <Link to="/about"> GO TO THE ABOUT PAGE </Link>
+      <Link to="/biblequiz"> GO TO THE BIBLE QUIZ PAGE </Link>
     </div>
   );
 }
