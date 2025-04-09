@@ -8,7 +8,6 @@ import HongKongQuiz from "./pages/HongKongQuiz";
 
 function App() {
   return (
-    <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
@@ -18,7 +17,6 @@ function App() {
           <Route path="/hongkongQuiz" element={<HongKongQuiz/>}/>
         </Routes>
       </Router>
-    </div>
   );
 }
 
