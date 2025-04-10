@@ -4,8 +4,12 @@
         "aboutS": "The story about this website",
         "aboutMe": "About Me",
         "aboutMeS": "My self introduction",
-        "bibleOX":"BibleOX",
-        "bibleOXS": "Take a challenge to know more about the Bible!"
+        "bibleOX":"Bible OX",
+        "bibleOXS": "Know more about the Bible",
+        "hongkongOX":"Hong Kong OX",
+        "hongkongOXS": "Learn more about Hong Kong",
+        "canadaOX": "Canada OX",
+        "canadaOXS": "Learn more about Canada"
     },
     "about": "About",
     "buttonpanel":{
