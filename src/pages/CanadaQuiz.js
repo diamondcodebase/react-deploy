@@ -10,6 +10,9 @@ import CustomButtonV from "../components/CustomButtonV";
 import ResultSummary from "../components/ResultSummary";
 import { BackendUrl, BackendPort, tLimit } from "../config/config";
 import AdvancedButtonPanel from "../components/AdvancedButtonPanel";
+import bg_img from "../static/img/canadaOX_bg.jpg";
+import right_btn_img from "../static/img/Right_Transparent_BG.png";
+import wrong_btn_img from "../static/img/Wrong_Transparent_BG.png";
 
 
 export default function CanadaQuiz() {
@@ -205,7 +208,7 @@ export default function CanadaQuiz() {
         <body>
             <header></header>
             <main className="flex min-h-screen flex-col items-center justify-between p-12 bg-clip-border"
-                style={{backgroundImage: `url(/canadaOX_BG.jpg)`,
+                style={{backgroundImage: "url(" + bg_img + ")",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundAttachment: "fixed"                              
@@ -238,13 +241,13 @@ export default function CanadaQuiz() {
                 <div className='flex justify-center mb-4 flex-row items-center'>
                     <ImageButton 
                         btnLabel="Right" 
-                        imgSrc="/Right_Transparent_BG.png" 
+                        imgSrc={ right_btn_img } 
                         onClickFn={() => getShowAnswer(true)} 
                         visible={isGameStarted && !isConfirmed}
                     />
                     <ImageButton
                         btnLabel="Wrong"
-                        imgSrc="/Wrong_Transparent_BG.png"
+                        imgSrc={ wrong_btn_img } 
                         onClickFn={() => getShowAnswer(false)}
                         visible={isGameStarted && !isConfirmed}
                     />
