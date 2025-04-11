@@ -8,7 +8,7 @@ import AnswerBox from "../components/AnswerBox";
 import ImageButton from "../components/ImageButton";
 import CustomButtonV from "../components/CustomButtonV";
 import ResultSummary from "../components/ResultSummary";
-import { tLimit } from "../config/config";
+import { BackendUrl, BackendPort, tLimit } from "../config/config";
 import AdvancedButtonPanel from "../components/AdvancedButtonPanel";
 
 export default function BibleQuiz() {
@@ -17,36 +17,36 @@ export default function BibleQuiz() {
     const [questions, setQuestions] = useState([]);
 
     // generate and return an array of random pick questions
-    const generateRandomQuestions = () => {
-        const n = questionsSet.length;
-        const resultSet = new Set();
+    // const generateRandomQuestions = () => {
+    //     const n = questionsSet.length;
+    //     const resultSet = new Set();
         
-        while (resultSet.size < noOfRound){
-            const index = Math.floor(Math.random() * n);
-            resultSet.add(questionsSet[index]);
-        }
-        const resultArr = Array.from(resultSet);
-        console.log(resultArr);
-        return resultArr;
-    }
+    //     while (resultSet.size < noOfRound){
+    //         const index = Math.floor(Math.random() * n);
+    //         resultSet.add(questionsSet[index]);
+    //     }
+    //     const resultArr = Array.from(resultSet);
+    //     console.log(resultArr);
+    //     return resultArr;
+    // }
 
     // This option is using default questions stored in ReactJS
-    useEffect(() => {
-        // var data = generateRandomQuestions()
-        // setQuestions(data);
-        setQuestions(generateRandomQuestions());
-    }, [generateRandomQuestions]);
+    // useEffect(() => {
+    //     // var data = generateRandomQuestions()
+    //     // setQuestions(data);
+    //     setQuestions(generateRandomQuestions());
+    // }, [generateRandomQuestions]);
 
     // This option is using questions in response from GoLang backend endpoint
-    // useEffect(() => {
-    //     console.log(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5");
-    //     fetch(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5")
-    //         .then((data) => data.json())
-    //         .then((data) => {
-    //             setQuestions(data);
-    //         });
-    //     },[]
-    // );
+    useEffect(() => {
+        console.log(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5");
+        fetch(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5")
+            .then((data) => data.json())
+            .then((data) => {
+                setQuestions(data);
+            });
+        },[]
+    );
 
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);

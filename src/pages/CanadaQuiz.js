@@ -8,7 +8,7 @@ import AnswerBox from "../components/AnswerBox";
 import ImageButton from "../components/ImageButton";
 import CustomButtonV from "../components/CustomButtonV";
 import ResultSummary from "../components/ResultSummary";
-import { tLimit } from "../config/config";
+import { BackendUrl, BackendPort, tLimit } from "../config/config";
 import AdvancedButtonPanel from "../components/AdvancedButtonPanel";
 
 
@@ -18,35 +18,35 @@ export default function CanadaQuiz() {
     const [questions, setQuestions] = useState([]);
 
     // generate and return an array of random pick questions
-    const generateRandomQuestions = () => {
-        const n = questionsSet.length;
-        const resultSet = new Set();
+    // const generateRandomQuestions = () => {
+    //     const n = questionsSet.length;
+    //     const resultSet = new Set();
         
-        while (resultSet.size < noOfRound){
-            const index = Math.floor(Math.random() * n);
-            resultSet.add(questionsSet[index]);
-        }
-        const resultArr = Array.from(resultSet);
-        console.log(resultArr);
-        return resultArr;
-    }
+    //     while (resultSet.size < noOfRound){
+    //         const index = Math.floor(Math.random() * n);
+    //         resultSet.add(questionsSet[index]);
+    //     }
+    //     const resultArr = Array.from(resultSet);
+    //     console.log(resultArr);
+    //     return resultArr;
+    // }
 
     // This option is using default questions stored in ReactJS
-    useEffect(() => {
-        // var data = generateRandomQuestions()
-        // setQuestions(data);
-        setQuestions(generateRandomQuestions());
-    }, [generateRandomQuestions]);
+    // useEffect(() => {
+    //     // var data = generateRandomQuestions()
+    //     // setQuestions(data);
+    //     setQuestions(generateRandomQuestions());
+    // }, [generateRandomQuestions]);
 
     // This is method to get questionSet from backend and database
-    // useEffect(() => {
-    //     fetch(BackendUrl + ":" + BackendPort + "/questionset/canada?len=5")
-    //         .then((data) => data.json())
-    //         .then((data) => {
-    //             setQuestions(data);
-    //         });
-    //     },[]
-    // );
+    useEffect(() => {
+        fetch(BackendUrl + ":" + BackendPort + "/questionset/canada?len=5")
+            .then((data) => data.json())
+            .then((data) => {
+                setQuestions(data);
+            });
+        },[]
+    );
 
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);
@@ -174,8 +174,8 @@ export default function CanadaQuiz() {
         var question = questions[round];
 
         setModelAnswer(question.answer);
-        setQuestionContent(question.question);
-        setExplanation(question.explanation);           
+        setQuestionContent(question.questionText);
+        setExplanation(question.answerDetail);           
         setAnswerVisible(false);
         setAnswered(false);
         setConfirmed(false);
@@ -200,7 +200,7 @@ export default function CanadaQuiz() {
         setQuestionVisible(false);
         setAnswerVisible(false);        
     }
-
+    
     return (
         <body>
             <header></header>

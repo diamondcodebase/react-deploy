@@ -106,20 +106,6 @@ export default function HongKongQuiz() {
         },
     ]
 
-    // generate and return an array of random pick questions
-    function generateRandomQuestions() {
-        const n = questionsSet.length;
-        const resultSet = new Set();
-        
-        while (resultSet.size < noOfRound){
-            const index = Math.floor(Math.random() * n);
-            resultSet.add(questionsSet[index]);
-        }
-        const resultArr = Array.from(resultSet);
-        console.log(resultArr);
-        return resultArr;
-    }
-
     function getShowAnswer(res){
         const answer = res ? ("Right") : ("Wrong");
         setShowAnswer(answer);
@@ -158,8 +144,8 @@ export default function HongKongQuiz() {
         var question = questions[round];
 
         setModelAnswer(question.answer);
-        setQuestionContent(question.question);
-        setExplanation(question.explanation);           
+        setQuestionContent(question.questionText);
+        setExplanation(question.answerDetail);           
         setAnswerVisible(false);
         setAnswered(false);
         setConfirmed(false);
