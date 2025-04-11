@@ -2,6 +2,15 @@
 import BasicButtonPanel from "../components/BasicButtonPanel";
 import { Animator, ScrollContainer, ScrollPage, batch, Fade, FadeIn, FadeOut, MoveIn, MoveOut, Sticky, ZoomIn } from "react-scroll-motion";
 import React from "react";
+import web_img from "../static/img/web.png";
+import covid_img from "../static/img/covid.png";
+import guide_img from "../static/img/guide.png";
+import inspire_img from "../static/img/inspire.png";
+import struggle_img from "../static/img/struggle.png";
+import enjoy_img from "../static/img/enjoy.png";
+import trueOrFalse_img from "../static/img/trueOrFalse.png";
+import bauhinia_img from "../static/img/bauhinia.png";
+import maple_img from "../static/img/mapleLeaf.png";
 
 export default function About() {
     const FadeMoveOut = batch(Fade(), Sticky(), MoveOut(0,-500));
@@ -19,7 +28,7 @@ export default function About() {
                         <Animator animation={FadeMoveOut}>
                             <div className='flex flex-row items-center'>
                                 <div className='text-3xl font-bold p-3 m-3'>About This Web</div>
-                                <img src="/web.png" alt="About web image"
+                                <img src={ web_img } alt="About web"
                                     width={250}
                                     height={250}/>
                             </div>
@@ -28,7 +37,7 @@ export default function About() {
                     <ScrollPage>
                         <Animator animation={FadeMoveOut}>
                             <div className='flex flex-row items-center'>
-                                <img src="/covid.png" alt="Covid image"
+                                <img src={ covid_img } alt="Covid"
                                         width={250}
                                         height={250}/>
                                 <div>
@@ -51,7 +60,7 @@ export default function About() {
                                 <div className='text-2xl font-bold p-3 m-3'>
                                     At that time, my pastor was looking for interactive and creative ways to read the Bible with our church community.
                                 </div>
-                                <img src="/guide.png" alt="Guide image"
+                                <img src={ guide_img } alt="Guide"
                                     width={250}
                                     height={250}/>
                             </div>
@@ -60,7 +69,7 @@ export default function About() {
                     <ScrollPage>
                         <Animator animation={ZoomInScrollOut}>
                             <div className='flex flex-row items-center'>
-                            <img src="/inspire.png" alt="Inspire image"
+                            <img src={ inspire_img } alt="Inspire"
                                     width={250}
                                     height={250}/>
                                 <div className='text-2xl font-bold p-3 m-3'>
@@ -80,7 +89,7 @@ export default function About() {
                                         I learned about Google App Scripts through YouTube and tried to implement it using Google Drive and Google Sheets as a database.
                                     </div>
                                 </div>
-                                <img src="/struggle.png" alt="Struggling image"
+                                <img src={ struggle_img } alt="Struggling"
                                         width={250}
                                         height={250}/>
                             </div>                        
@@ -89,13 +98,13 @@ export default function About() {
                     <ScrollPage>
                         <Animator animation={FadeMoveOut}>
                             <div className='flex flex-row items-center'>
-                                <img src="/enjoy.png" alt="Enjoy image"
+                                <img src={ enjoy_img } alt="Enjoy"
                                             width={250}
                                             height={250}/>
                                 <div className='text-2xl font-bold p-3 m-3'>
                                     Eventually, I was able to launch a series of Bible verse OX games, which my church group really enjoyed playing.
                                 </div>
-                                <img src="/trueOrFalse.png" alt="TrueFalse image"
+                                <img src={ trueOrFalse_img } alt="TrueFalse"
                                             width={250}
                                             height={250}/>
                             </div>                        
@@ -104,14 +113,14 @@ export default function About() {
                     <ScrollPage>
                         <Animator animation={FadeMoveOut}>
                             <div className='flex flex-row items-center'>
-                                <img src="/bauhinia.png" alt="Bauhinia image"
+                                <img src={ bauhinia_img } alt="Bauhinia"
                                                 width={200}
                                                 height={200}/>
                                 <div className='text-2xl font-bold p-3 m-3'>
                                     This website is an extension of the original Bible OX game.
                                     I have added two more features: a Hong Kong OX game and a Canada OX game. 
                                 </div>
-                                <img src="/mapleLeaf.png" alt="Maple image"
+                                <img src={ maple_img } alt="Maple"
                                                 width={200}
                                                 height={200}/>
                             </div>             
