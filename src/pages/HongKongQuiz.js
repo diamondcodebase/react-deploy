@@ -43,7 +43,9 @@ export default function HongKongQuiz() {
 
     // This is method to get questionSet from backend and database
     useEffect(() => {
-        fetch(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5")
+        fetch(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5",
+            { mode: 'no-cors' }
+        )
             .then((data) => data.json())
             .then((data) => {
                 setQuestions(data);

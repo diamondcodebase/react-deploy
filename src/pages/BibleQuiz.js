@@ -43,7 +43,9 @@ export default function BibleQuiz() {
     // This option is using questions in response from GoLang backend endpoint
     useEffect(() => {
         console.log(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5");
-        fetch(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5")
+        fetch(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5",
+            { mode: 'no-cors' }
+        )
             .then((data) => data.json())
             .then((data) => {
                 setQuestions(data);
