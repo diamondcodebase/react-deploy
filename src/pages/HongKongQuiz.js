@@ -9,7 +9,7 @@ import ImageButton from "../components/ImageButton";
 import CustomButtonV from "../components/CustomButtonV";
 import ResultSummary from "../components/ResultSummary";
 import { BackendUrl, BackendPort, tLimit } from "../config/config";
-import AdvancedButtonPanel from "../components/AdvancedButtonPanel";
+import BasicButtonPanel from "../components/BasicButtonPanel";
 import bg_img from "../static/img/hongkongOX_bg.jpg";
 import right_btn_img from "../static/img/Right_Transparent_BG.png";
 import wrong_btn_img from "../static/img/Wrong_Transparent_BG.png";
@@ -43,6 +43,7 @@ export default function HongKongQuiz() {
 
     // This is method to get questionSet from backend and database
     useEffect(() => {
+        console.log(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5");
         fetch(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5")
             .then((data) => data.json()).then((data) => {
                 setQuestions(data);
@@ -246,7 +247,7 @@ export default function HongKongQuiz() {
                     round = {round}
                     visible = {isGameOver}
                 />
-                <AdvancedButtonPanel/> 
+                <BasicButtonPanel/> 
             </main>
         </div>
     );

@@ -9,7 +9,7 @@ import mapleLeaf from "../static/img/maple1.png";
 
 export default function Home() {
   return (
-    <body>
+    <div>
       <header>
         <title>OX Challenge</title>
       </header>
@@ -86,6 +86,6 @@ export default function Home() {
         </div>
       </main>
       
-    </body>
+    </div>
   );
 }
