@@ -43,9 +43,7 @@ export default function CanadaQuiz() {
 
     // This is method to get questionSet from backend and database
     useEffect(() => {
-        fetch(BackendUrl + ":" + BackendPort + "/questionset/canada?len=5",
-            { mode: 'no-cors' }
-        )
+        fetch(BackendUrl + ":" + BackendPort + "/questionset/canada?len=5")
             .then((data) => data.json())
             .then((data) => {
                 setQuestions(data);

@@ -43,13 +43,11 @@ export default function HongKongQuiz() {
 
     // This is method to get questionSet from backend and database
     useEffect(() => {
-        fetch(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5",
-            { mode: 'no-cors' }
-        )
-            .then((data) => data.json())
-            .then((data) => {
+        fetch(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5")
+            .then((data) => data.json()).then((data) => {
                 setQuestions(data);
-            });
+            })
+            .catch(error => console.error(error));
         },[]
     );
 
@@ -177,7 +175,7 @@ export default function HongKongQuiz() {
     }
 
     return (
-        <body>
+        <div>
             <header></header>
             <main className="flex min-h-screen flex-col items-center justify-between p-12 bg-clip-border"
                 style={{backgroundImage: "url(" + bg_img + ")",
@@ -250,6 +248,6 @@ export default function HongKongQuiz() {
                 />
                 <AdvancedButtonPanel/> 
             </main>
-        </body>
+        </div>
     );
 }
