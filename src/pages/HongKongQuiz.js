@@ -43,14 +43,19 @@ export default function HongKongQuiz() {
 
     // This is method to get questionSet from backend and database
     useEffect(() => {
-        console.log(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5");
-        fetch(BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5")
-            .then((data) => data.json()).then((data) => {
+        const url = BackendUrl + ":" + BackendPort + "/questionset/hongkong?len=5";
+        console.log(url);
+        const fetchData = async () =>{
+            try{
+                const response = await fetch(url);
+                const data = await response.json();
                 setQuestions(data);
-            })
-            .catch(error => console.error(error));
-        },[]
-    );
+            } catch (error){
+                console.error("Error fetching data:", error);
+            }
+        };
+        fetchData();
+    },[]);
 
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);

@@ -42,14 +42,19 @@ export default function BibleQuiz() {
 
     // This option is using questions in response from GoLang backend endpoint
     useEffect(() => {
-        console.log(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5");
-        fetch(BackendUrl + ":" + BackendPort + "/questionset/bible?len=5")
-            .then((data) => data.json())
-            .then((data) => {
+        const url = BackendUrl + ":" + BackendPort + "/questionset/bible?len=5";
+        console.log(url);
+        const fetchData = async () =>{
+            try{
+                const response = await fetch(url);
+                const data = await response.json();
                 setQuestions(data);
-            });
-        },[]
-    );
+            } catch (error){
+                console.error("Error fetching data:", error);
+            }
+        };
+        fetchData();
+    },[]);
 
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);
