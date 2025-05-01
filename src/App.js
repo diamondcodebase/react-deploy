@@ -5,6 +5,7 @@ import About from "./pages/About";
 import BibleQuiz from "./pages/BibleQuiz";
 import CanadaQuiz from "./pages/CanadaQuiz";
 import HongKongQuiz from "./pages/HongKongQuiz";
+import Test1 from './pages/Test1';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/bibleQuiz" element={<BibleQuiz/>}/>
           <Route path="/canadaQuiz" element={<CanadaQuiz/>}/>
           <Route path="/hongkongQuiz" element={<HongKongQuiz/>}/>
+          <Route path="/test1" element={<Test1/>}/>
         </Routes>
       </Router>
   );
