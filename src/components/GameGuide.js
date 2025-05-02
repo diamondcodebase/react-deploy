@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './GameGuide.css'; // Import your CSS styles
+import plant from "../static/img/lovely_plant.png";
 
 // Import your images
 import image1 from '../static/img/guide_page1.png';
@@ -80,50 +81,54 @@ const GameGuide = ({ returnUrl = '/' }) => {
     setIsModalOpen(true);
   };
 
-  const handleOpenModal2 = () => {
-    alert("Button clicked!");
-  };
-
   return (
     <div>
-      <p>Modal Open: {isModalOpen.toString()}</p>
-    <button onClick={handleOpenModal}>Open Game Guide</button>
-    <button onClick={handleOpenModal2}>Click Me</button>
-    {isModalOpen && (
-      <div className={`modal ${isModalOpen ? 'modal-open' : ''}`}>
-        <div className="modal-overlay" onClick={handleHomeClick} />
-        <div className="modal-content">
-          <div className="carousel">
-            <img src={pages[currentPage].image} alt={pages[currentPage].title} />
-            <div className="carousel-content">
-              <h2>{pages[currentPage].title}</h2>
-              <p>{pages[currentPage].text}</p>
-            </div>
-            <div className="carousel-indicators">
-              {pages.map((_, index) => (
-                <span
-                  key={index}
-                  className={`indicator ${index === currentPage ? 'active' : ''}`}
-                ></span>
-              ))}
-            </div>
-            <div className="carousel-controls">
-              {currentPage > 0 && (
-                <button onClick={handlePrevClick}>
-                  Prev
-              </button>
-              )}
-              {currentPage < pages.length - 1 && (
-                <button onClick={handleNextClick}>
-                  Next
+      <div className="group rounded-lg border border-transparent px-5 py-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:border-green-100 hover:bg-green-100/50" 
+        onClick={handleOpenModal}>
+          <h2 className={`mb-3 text-3xl font-bold text-green-600`}>
+            Guide
+          </h2>       
+          <img className="rounded-md opacity-30 object-cover ease-in-out duration-300 group-hover:-rotate-12 group-hover:scale-120 group-hover:opacity-60" 
+            src={ plant } 
+            width={80} 
+            height={160} 
+            alt="Plant"/>   
+      </div>
+      {isModalOpen && (
+        <div className={`modal ${isModalOpen ? 'modal-open' : ''}`}>
+          <div className="modal-overlay" onClick={handleHomeClick} />
+          <div className="modal-content">
+            <div className="carousel">
+              <img src={pages[currentPage].image} alt={pages[currentPage].title} />
+              <div className="carousel-content">
+                <h2>{pages[currentPage].title}</h2>
+                <p>{pages[currentPage].text}</p>
+              </div>
+              <div className="carousel-indicators">
+                {pages.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`indicator ${index === currentPage ? 'active' : ''}`}
+                  ></span>
+                ))}
+              </div>
+              <div className="carousel-controls">
+                {currentPage > 0 && (
+                  <button onClick={handlePrevClick}>
+                    Prev
                 </button>
-              )}
-              <button onClick={handleHomeClick}>Close</button>
+                )}
+                {currentPage < pages.length - 1 && (
+                  <button onClick={handleNextClick}>
+                    Next
+                  </button>
+                )}
+                <button onClick={handleHomeClick}>Close</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </div>
   );
 };
