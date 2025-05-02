@@ -13,7 +13,7 @@ import BasicButtonPanel from "../components/BasicButtonPanel";
 import bg_img from "../static/img/canadaOX_bg.jpg";
 import right_btn_img from "../static/img/Right_Transparent_BG.png";
 import wrong_btn_img from "../static/img/Wrong_Transparent_BG.png";
-
+import GameGuide from "../components/GameGuide";
 
 export default function CanadaQuiz() {
     const noOfRound = 5;
@@ -56,6 +56,9 @@ export default function CanadaQuiz() {
         };
         fetchData();
     },[]);
+
+    // Control visibility of GameGuide
+    const [isGuideVisible, setIsGuideVisible] = useState(true);
 
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);
@@ -154,6 +157,7 @@ export default function CanadaQuiz() {
 
     function startGame(){
         setGameStarted(true);
+        setIsGuideVisible(false);
         setQuestionVisible(true);
         nextRound();
     }
@@ -219,6 +223,12 @@ export default function CanadaQuiz() {
                     backgroundSize: "cover",
                     backgroundAttachment: "fixed"                              
             }}>
+                {/* Game Guide in the top-right corner */}
+                {isGuideVisible && (
+                <div style={{ position: "absolute", top: "20px", right: "20px" }}>
+                    <GameGuide returnUrl="/canadaquiz" />
+                </div>
+                )}
                 <div className='text-5xl font-bold p-3 m-3'>Canada OX Challenge</div>
                 <CountDownTimer 
                     secLimit = {timeLimit} 
