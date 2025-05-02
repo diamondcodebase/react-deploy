@@ -8,7 +8,7 @@ import AnswerBox from "../components/AnswerBox";
 import ImageButton from "../components/ImageButton";
 import CustomButtonV from "../components/CustomButtonV";
 import ResultSummary from "../components/ResultSummary";
-import { BackendUrl, BackendPort, tLimit } from "../config/config";
+import { BackendUrl, tLimit } from "../config/config";
 import BasicButtonPanel from "../components/BasicButtonPanel";
 import bg_img from "../static/img/hongkongOX_bg.jpg";
 import right_btn_img from "../static/img/Right_Transparent_BG.png";
