@@ -18,7 +18,6 @@ export default function About() {
     //const ZoomInScrollOut = batch(ZoomIn(), FadeIn(), Sticky(), MoveOut(0,-200));
     const MoveInOut = batch(MoveIn(-1000,0), Sticky(), Fade(), MoveOut(1000,0));
     const CastUp = batch(Fade(), Sticky(), MoveOut(0,-1000), FadeOut());
-    const FadeSticky = batch(Fade(), Sticky(), FadeOut(), MoveOut(-500,0));
     
     return (
         <div>
@@ -117,29 +116,31 @@ export default function About() {
                                                 width={200}
                                                 height={200}/>
                                 <div className='text-2xl font-bold p-3 m-3'>
-                                    This website is an extension of the original Bible OX game.
-                                    I have added two more features: a Hong Kong OX game and a Canada OX game. 
+                                    Based on the 
+                                    <a className='text-3xl font-bold p-1 m-1 text-blue-600 text-decoration-line: underline' 
+                                        href="https://sites.google.com/view/sobibleox/Home">
+                                            original Bible OX game
+                                    </a>
+                                    . I have added two more features: a Hong Kong OX game and a Canada OX game. 
                                 </div>
                                 <img src={ maple_img } alt="Maple"
                                                 width={200}
                                                 height={200}/>
-                            </div>             
+                            </div>            
                             
                         </Animator>
                     </ScrollPage>
                     <ScrollPage>
                         <Animator animation={CastUp}>
                             <div className='text-4xl font-bold p-3 m-3'>
-                                Hope you Enjoy!
+                                Enjoy!
                             </div>                
                         </Animator>
                     </ScrollPage>
-                    <ScrollPage>
-                        
-                    </ScrollPage>
-                </ScrollContainer>
+                </ScrollContainer>               
             </section>
             <BasicButtonPanel />
+            
         </div>        
     );
 }
