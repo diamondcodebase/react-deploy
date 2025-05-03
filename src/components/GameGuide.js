@@ -23,7 +23,7 @@ const GameGuide = ({ returnUrl = '/' }) => {
     {
       image: image1,
       title: 'START',
-      text: 'To start the game, click "START".'
+      text: 'To start the game, click "Start Game".'
     },
     {
       image: image2,
@@ -38,12 +38,12 @@ const GameGuide = ({ returnUrl = '/' }) => {
     {
       image: image4,
       title: 'CHOICE',
-      text: 'You can answer the statement is right or wrong.'
+      text: 'You can determine the given statement is right or wrong.'
     },
     {
       image: image5,
       title: 'CONFIRM',
-      text: 'If you are sure about your answer, click "CONFIRM".'
+      text: 'If you made your decision, click "Confirm Answer".'
     },
     {
       image: image6,
@@ -53,11 +53,11 @@ const GameGuide = ({ returnUrl = '/' }) => {
     {
       image: image7,
       title: 'NEXT QUESTION',
-      text: 'You can read the result, the time counter will not on going until you click "NEXT" to the next question.'
+      text: 'You can read the result, the time counter pauses until you click "Next Question" to the next question.'
     },
     {
       image: image8,
-      title: 'ON-GOING',
+      title: 'GO AHEAD',
       text: 'You will see the next question. Totally there are 5 questions in a single trial. Enjoy!'
     }
   ];
