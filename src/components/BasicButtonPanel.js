@@ -1,12 +1,13 @@
-import CustomButton from "../components/CustomButton";
+import HomeButton from "../components/HomeButton";
+import OriginalWebButton from "./OriginalWebButton";
+import DiamondButton from "./DiamondButton";
 
 export default function BasicButtonPanel(){
     return (
         <div className='flex justify-center mb-4 flex-row items-center'>
-            <CustomButton 
-                btnLabel="Home" 
-                hrefLink ="../"
-            />
+            <HomeButton />
+            <OriginalWebButton />
+            <DiamondButton />
         </div>
     );
 }
