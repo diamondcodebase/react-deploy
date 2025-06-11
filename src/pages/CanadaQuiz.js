@@ -44,7 +44,7 @@ export default function CanadaQuiz() {
     // This is method to get questionSet from backend and database
     useEffect(() => {
         const url = BackendUrl + "/questionset/canada?len=5";
-        console.log(url);
+        // console.log(url);
         const fetchData = async () =>{
             try{
                 const response = await fetch(url);
