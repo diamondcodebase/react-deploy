@@ -63,7 +63,7 @@ export default function CanadaQuiz() {
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);
 
-    const [timeLimit, setTimeLimit] = useState(tLimit);
+    // const [timeLimit, setTimeLimit] = useState(tLimit);
     const [isTimesUp, setTimesUp] = useState(false);
     const [isTimerVisible, setTimerVisible] = useState(false);
     const [isTimerRunning, setTimerRunning] = useState(false);
@@ -85,68 +85,69 @@ export default function CanadaQuiz() {
     const chosenPhrase = "You think this statement is "
     const answered = true;   
 
-    const questionsSet = [
-        {
-            questionId : 1,
-            question : "Canada became an independent country in 1867.",
-            answer : false,
-            explanation: "Canada became a self-governing dominion within the British Empire in 1867 through the British North America Act, but did not achieve full independence until 1982 with the patriation of the Constitution."
-        },
-        {
-            questionId : 2,
-            question : "Victoria Day was originally established to celebrate the birthday of Queen Victoria.",
-            answer : true,
-            explanation: "Victoria Day was originally established to celebrate the birthday of Queen Victoria since 1840s."
-        },
-        {
-            questionId : 3,
-            question : "Remembrance Day in Canada commemorates the end of World War II.",
-            answer : false,
-            explanation: "Remembrance Day, observed on November 11th, marks the date when World War I ended in 1918 with the signing of the Armistice."
-        },
-        {
-            questionId : 4,
-            question : "Canada is the world's third-largest country.",
-            answer : false,
-            explanation: "Canada is the world's second-largest country by total land area, after Russia."
-        },
-        {
-            questionId : 5,
-            question : "The Canadian Rockies are a mountain range located entirely within Canada.",
-            answer : true,
-            explanation: "The Canadian Rockies, a major mountain range in western Canada, are located entirely within the borders of Canada, stretching from the province of British Columbia to the province of Alberta."
-        },
-        {
-            questionId : 6,
-            question : "Sir Louis-Hippolyte La Fontaine was the first head of a responsible government in Canada.",
-            answer : true,
-            explanation: ""
-        },
-        {
-            questionId : 7,
-            question : "The two responsibilities of the federal government are citizenship and highways.",
-            answer : false,
-            explanation: "The two responsibilities of the federal government are national defence and foreign policy."
-        },
-        {
-            questionId : 8,
-            question : "Newfoundland was the last province to join Canada.",
-            answer : true,
-            explanation: ""
-        },
-        {
-            questionId : 9,
-            question : "Approximately 60,000 Canadians served in the First World War.",
-            answer : false,
-            explanation: "More than 600,000 Canadians served in the First World War."
-        },
-        {
-            questionId : 10,
-            question : "The five Great lakes in Canada are Erie, Hudson's Bay, Michigan, Ontario and Superior.",
-            answer : false,
-            explanation: "Erie, Huron, Michigan, Ontario and Superior."
-        },
-    ]
+    // questionsSet is the default question set, which is used for testing purpose.
+    // const questionsSet = [
+    //     {
+    //         questionId : 1,
+    //         question : "Canada became an independent country in 1867.",
+    //         answer : false,
+    //         explanation: "Canada became a self-governing dominion within the British Empire in 1867 through the British North America Act, but did not achieve full independence until 1982 with the patriation of the Constitution."
+    //     },
+    //     {
+    //         questionId : 2,
+    //         question : "Victoria Day was originally established to celebrate the birthday of Queen Victoria.",
+    //         answer : true,
+    //         explanation: "Victoria Day was originally established to celebrate the birthday of Queen Victoria since 1840s."
+    //     },
+    //     {
+    //         questionId : 3,
+    //         question : "Remembrance Day in Canada commemorates the end of World War II.",
+    //         answer : false,
+    //         explanation: "Remembrance Day, observed on November 11th, marks the date when World War I ended in 1918 with the signing of the Armistice."
+    //     },
+    //     {
+    //         questionId : 4,
+    //         question : "Canada is the world's third-largest country.",
+    //         answer : false,
+    //         explanation: "Canada is the world's second-largest country by total land area, after Russia."
+    //     },
+    //     {
+    //         questionId : 5,
+    //         question : "The Canadian Rockies are a mountain range located entirely within Canada.",
+    //         answer : true,
+    //         explanation: "The Canadian Rockies, a major mountain range in western Canada, are located entirely within the borders of Canada, stretching from the province of British Columbia to the province of Alberta."
+    //     },
+    //     {
+    //         questionId : 6,
+    //         question : "Sir Louis-Hippolyte La Fontaine was the first head of a responsible government in Canada.",
+    //         answer : true,
+    //         explanation: ""
+    //     },
+    //     {
+    //         questionId : 7,
+    //         question : "The two responsibilities of the federal government are citizenship and highways.",
+    //         answer : false,
+    //         explanation: "The two responsibilities of the federal government are national defence and foreign policy."
+    //     },
+    //     {
+    //         questionId : 8,
+    //         question : "Newfoundland was the last province to join Canada.",
+    //         answer : true,
+    //         explanation: ""
+    //     },
+    //     {
+    //         questionId : 9,
+    //         question : "Approximately 60,000 Canadians served in the First World War.",
+    //         answer : false,
+    //         explanation: "More than 600,000 Canadians served in the First World War."
+    //     },
+    //     {
+    //         questionId : 10,
+    //         question : "The five Great lakes in Canada are Erie, Hudson's Bay, Michigan, Ontario and Superior.",
+    //         answer : false,
+    //         explanation: "Erie, Huron, Michigan, Ontario and Superior."
+    //     },
+    // ]
 
     function getShowAnswer(res){
         const answer = res ? ("Right") : ("Wrong");
@@ -225,13 +226,21 @@ export default function CanadaQuiz() {
             }}>
                 {/* Game Guide in the top-right corner */}
                 {isGuideVisible && (
-                <div style={{ position: "absolute", top: "20px", right: "20px" }}>
+                <div style={{ 
+                            position: "absolute", 
+                            top: "10px",
+                            right: "10px",
+                            zIndex: 10,
+                            maxWidth: "20vw" 
+                            }} className="w-11/12 sm:w-auto">
                     <GameGuide returnUrl="/canadaquiz" />
                 </div>
                 )}
-                <div className='text-5xl font-bold p-3 m-3'>Canada OX Challenge</div>
+                <div className='text-3xl sm:text-5xl font-bold p-2 sm:p-3 m-2 sm:m-3 text-center w-full'>
+                    Canada OX Challenge
+                </div>
                 <CountDownTimer 
-                    secLimit = {timeLimit} 
+                    secLimit = {tLimit} 
                     visible = {isTimerVisible} 
                     running = {isTimerRunning} 
                     timeoutFn = {() => timeUpfunction() }
@@ -260,12 +269,14 @@ export default function CanadaQuiz() {
                         imgSrc={ right_btn_img } 
                         onClickFn={() => getShowAnswer(true)} 
                         visible={isGameStarted && !isConfirmed}
+                        className="w-32 sm:w-40"
                     />
                     <ImageButton
                         btnLabel="Wrong"
                         imgSrc={ wrong_btn_img } 
                         onClickFn={() => getShowAnswer(false)}
                         visible={isGameStarted && !isConfirmed}
+                        className="w-32 sm:w-40"
                     />
                 </div>
                 <AnswerBox
@@ -292,7 +303,9 @@ export default function CanadaQuiz() {
                     round = {round}
                     visible = {isGameOver}
                 />
-                <HomeButton/> 
+                <div className="w-full flex justify-center mt-4">
+                    <HomeButton />
+                </div>
             </main>
         </div>
     );

@@ -63,7 +63,7 @@ export default function HongKongQuiz() {
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);
 
-    const [timeLimit, setTimeLimit] = useState(tLimit);
+    // const [timeLimit, setTimeLimit] = useState(tLimit);
     const [isTimesUp, setTimesUp] = useState(false);
     const [isTimerVisible, setTimerVisible] = useState(false);
     const [isTimerRunning, setTimerRunning] = useState(false);
@@ -85,38 +85,39 @@ export default function HongKongQuiz() {
     const chosenPhrase = "You think this statement is "
     const answered = true;   
 
-    const questionsSet = [
-        {
-            questionId : 1,
-            question : "Hong Kong was a British colony until 1997.",
-            answer : true,
-            explanation: "Hong Kong was a British colony from 1842 until it was transferred back to China in 1997."
-        },
-        {
-            questionId : 2,
-            question : "Cantonese is the official language of Hong Kong.",
-            answer : true,
-            explanation: "Cantonese is the primary official language used in Hong Kong, along with English."
-        },
-        {
-            questionId : 3,
-            question : "The Hong Kong Disneyland Resort is the largest Disney theme park in the world.",
-            answer : false,
-            explanation: "The Walt Disney World Resort in Florida is the largest Disney theme park in the world, not the Hong Kong Disneyland Resort."
-        },
-        {
-            questionId : 4,
-            question : "The Kowloon-Canton Railway, the first railway in Hong Kong, was completed in 1998.",
-            answer : false,
-            explanation: "The Kowloon-Canton Railway, connecting Kowloon to mainland China, was completed in 1911 during the British colonial era."
-        },
-        {
-            questionId : 5,
-            question : "Hong Kong has the highest population density in the world.",
-            answer : true,
-            explanation: "Hong Kong is one of the most densely populated places in the world, with a population density of over 6,700 people per square kilometer."
-        },
-    ]
+    // questionsSet is the default question set, which is used for testing purpose.
+    // const questionsSet = [
+    //     {
+    //         questionId : 1,
+    //         question : "Hong Kong was a British colony until 1997.",
+    //         answer : true,
+    //         explanation: "Hong Kong was a British colony from 1842 until it was transferred back to China in 1997."
+    //     },
+    //     {
+    //         questionId : 2,
+    //         question : "Cantonese is the official language of Hong Kong.",
+    //         answer : true,
+    //         explanation: "Cantonese is the primary official language used in Hong Kong, along with English."
+    //     },
+    //     {
+    //         questionId : 3,
+    //         question : "The Hong Kong Disneyland Resort is the largest Disney theme park in the world.",
+    //         answer : false,
+    //         explanation: "The Walt Disney World Resort in Florida is the largest Disney theme park in the world, not the Hong Kong Disneyland Resort."
+    //     },
+    //     {
+    //         questionId : 4,
+    //         question : "The Kowloon-Canton Railway, the first railway in Hong Kong, was completed in 1998.",
+    //         answer : false,
+    //         explanation: "The Kowloon-Canton Railway, connecting Kowloon to mainland China, was completed in 1911 during the British colonial era."
+    //     },
+    //     {
+    //         questionId : 5,
+    //         question : "Hong Kong has the highest population density in the world.",
+    //         answer : true,
+    //         explanation: "Hong Kong is one of the most densely populated places in the world, with a population density of over 6,700 people per square kilometer."
+    //     },
+    // ]
 
     function getShowAnswer(res){
         const answer = res ? ("Right") : ("Wrong");
@@ -195,13 +196,21 @@ export default function HongKongQuiz() {
             }}>
                 {/* Game Guide in the top-right corner */}
                 {isGuideVisible && (
-                <div style={{ position: "absolute", top: "20px", right: "20px" }}>
+                <div style={{ 
+                            position: "absolute", 
+                            top: "10px",
+                            right: "10px",
+                            zIndex: 10,
+                            maxWidth: "20vw" 
+                            }} className="w-11/12 sm:w-auto">
                     <GameGuide returnUrl="/hongkongquiz" />
                 </div>
                 )}
-                <div className='text-5xl font-bold p-3 m-3'>Hong Kong OX Challenge</div>
+                <div className='text-3xl sm:text-5xl font-bold p-2 sm:p-3 m-2 sm:m-3 text-center w-full'>
+                    Hong Kong OX Challenge
+                </div>
                 <CountDownTimer 
-                    secLimit = {timeLimit} 
+                    secLimit = {tLimit} 
                     visible = {isTimerVisible} 
                     running = {isTimerRunning} 
                     timeoutFn = {() => timeUpfunction() }
@@ -230,12 +239,14 @@ export default function HongKongQuiz() {
                         imgSrc={ right_btn_img } 
                         onClickFn={() => getShowAnswer(true)} 
                         visible={isGameStarted && !isConfirmed}
+                        className="w-32 sm:w-40"
                     />
                     <ImageButton
                         btnLabel="Wrong"
                         imgSrc={ wrong_btn_img } 
                         onClickFn={() => getShowAnswer(false)}
                         visible={isGameStarted && !isConfirmed}
+                        className="w-32 sm:w-40"
                     />
                 </div>
                 <AnswerBox
@@ -262,7 +273,9 @@ export default function HongKongQuiz() {
                     round = {round}
                     visible = {isGameOver}
                 />
-                <HomeButton/> 
+                <div className="w-full flex justify-center mt-4">
+                    <HomeButton /> 
+                </div>                
             </main>
         </div>
     );

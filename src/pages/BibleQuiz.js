@@ -63,7 +63,7 @@ export default function BibleQuiz() {
     const [isGameStarted, setGameStarted] = useState(false);
     const [isGameOver, setGameOver] = useState(false);
 
-    const [timeLimit, setTimeLimit] = useState(tLimit);
+    // const [timeLimit, setTimeLimit] = useState(tLimit);
     const [isTimesUp, setTimesUp] = useState(false);
     const [isTimerVisible, setTimerVisible] = useState(false);
     const [isTimerRunning, setTimerRunning] = useState(false);
@@ -85,98 +85,99 @@ export default function BibleQuiz() {
     const chosenPhrase = "You think this statement is "
     const answered = true;
     
-    const questionsSet = [
-        {
-            questionId : 1,
-            questionText : "The genealogy of Jesus Christ in the Gospel of Matthew begins with Adam.",
-            answer : false,
-            answerDetail: "The genealogy of Jesus Christ in Matthew begins with Abraham (Matthew 1:1)"
-        },
-        {
-            questionId : 2,
-            questionText : "Five women's names appear in the genealogy of Jesus in the Gospel of Matthew.",
-            answer : true,
-            answerDetail: "(Matthew 1:3,5,6,16)"
-        },
-        {
-            questionId : 3,
-            questionText : "Matthew 1:23 'The virgin will conceive and give birth to a son, and they will call him Immanuel” comes from the Old Testament Psalms.",
-            answer : false,
-            answerDetail: "It comes from Isaiah 7 in the Old Testament (Isaiah 7:14)"
-        },
-        {
-            questionId : 4,
-            questionText : "Matthew 3:3 'A voice of one calling in the wilderness, 'Prepare the way for the Lord, make straight paths for him.'' comes from Isaiah chapter 40.",
-            answer : true,
-            answerDetail: "(Matthew 3:3, Isaiah 40:3)"
-        },
-        {
-            questionId : 5,
-            questionText : "Jesus was born in Bethlehem, Judah.",
-            answer : true,
-            answerDetail: "(Matthew 2:1)"
-        },
-        {
-            questionId : 6,
-            questionText : "Joseph's family fled to Persia in the east to avoid King Herod's pursuit.",
-            answer : false,
-            answerDetail: "They were fleeing to the southwest to Egypt (Matthew 2:13)"
-        },
-        {
-            questionId : 7,
-            questionText : "After Joseph's family returned to the land of Israel, they settled in Nazareth.",
-            answer : true,
-            answerDetail: "(Matthew 2:23)"
-        },
-        {
-            questionId: 8,
-            questionText: "Jesus was baptized by John the Baptist on the Sea of ​​Galilee.",
-            answer: false,
-            answerDetail: "Jesus was baptized by John the Baptist in the Jordan River (Matthew 3:13)"
-        },
-        {
-            questionId: 9,
-            questionText: "John the Baptist used the metaphor of a rock to exhort the Israelites to repent.",
-            answer: false,
-            answerDetail: "John the Baptist used the metaphor of fruitfulness (Matthew 3:7-10)"
-        },
-        {
-            questionId: 10,
-            questionText: "John the Baptist warned the Israelites not to think that they would be saved because they had Abraham as their ancestor.",
-            answer: true,
-            answerDetail: "(Matthew 3:9-10)"
-        },
-        {
-            questionId: 21,
-            questionText: "When Jesus heard that John was in prison, he left Nazareth and went to the region of Zebulun and Naphtali.",
-            answer: true,
-            answerDetail: "(Matthew 4:13)"
-        },
-        {
-            questionId: 24,
-            questionText: "When Jesus first sent out his disciples, they only gathered in the area of ​​Israel for preaching.",
-            answer: true,
-            answerDetail: "(Matthew 10:5-6)"
-        },
-        {
-            questionId: 27,
-            questionText: "In the Sermon on the Mount in Matthew 5, Jesus said that whoever breaks one of the commandments will be called the greatest in the kingdom of heaven.",
-            answer: false,
-            answerDetail: "Jesus said whoever breaks one of the commandments will be called the least in the kingdom of heaven (Matthew 5:19)"
-        },
-        {
-            questionId: 30,
-            questionText: "John and James were casting their nets for fishing when Jesus called them.",
-            answer: false,
-            answerDetail: "They are mending the net on the boat (Matthew 4:21-22)"
-        },
-        {
-            questionId: 46,
-            questionText: "In Matthew 12, Jesus used soil as a metaphor to tell the difference between good and evil people.",
-            answer: false,
-            answerDetail: "Jesus used the parable of the fruit of a tree to distinguish between good and evil people (Matthew 12:33-36)"
-        },
-    ]
+    // questionsSet is the default question set, which is used for testing purpose.
+    // const questionsSet = [
+    //     {
+    //         questionId : 1,
+    //         questionText : "The genealogy of Jesus Christ in the Gospel of Matthew begins with Adam.",
+    //         answer : false,
+    //         answerDetail: "The genealogy of Jesus Christ in Matthew begins with Abraham (Matthew 1:1)"
+    //     },
+    //     {
+    //         questionId : 2,
+    //         questionText : "Five women's names appear in the genealogy of Jesus in the Gospel of Matthew.",
+    //         answer : true,
+    //         answerDetail: "(Matthew 1:3,5,6,16)"
+    //     },
+    //     {
+    //         questionId : 3,
+    //         questionText : "Matthew 1:23 'The virgin will conceive and give birth to a son, and they will call him Immanuel” comes from the Old Testament Psalms.",
+    //         answer : false,
+    //         answerDetail: "It comes from Isaiah 7 in the Old Testament (Isaiah 7:14)"
+    //     },
+    //     {
+    //         questionId : 4,
+    //         questionText : "Matthew 3:3 'A voice of one calling in the wilderness, 'Prepare the way for the Lord, make straight paths for him.'' comes from Isaiah chapter 40.",
+    //         answer : true,
+    //         answerDetail: "(Matthew 3:3, Isaiah 40:3)"
+    //     },
+    //     {
+    //         questionId : 5,
+    //         questionText : "Jesus was born in Bethlehem, Judah.",
+    //         answer : true,
+    //         answerDetail: "(Matthew 2:1)"
+    //     },
+    //     {
+    //         questionId : 6,
+    //         questionText : "Joseph's family fled to Persia in the east to avoid King Herod's pursuit.",
+    //         answer : false,
+    //         answerDetail: "They were fleeing to the southwest to Egypt (Matthew 2:13)"
+    //     },
+    //     {
+    //         questionId : 7,
+    //         questionText : "After Joseph's family returned to the land of Israel, they settled in Nazareth.",
+    //         answer : true,
+    //         answerDetail: "(Matthew 2:23)"
+    //     },
+    //     {
+    //         questionId: 8,
+    //         questionText: "Jesus was baptized by John the Baptist on the Sea of ​​Galilee.",
+    //         answer: false,
+    //         answerDetail: "Jesus was baptized by John the Baptist in the Jordan River (Matthew 3:13)"
+    //     },
+    //     {
+    //         questionId: 9,
+    //         questionText: "John the Baptist used the metaphor of a rock to exhort the Israelites to repent.",
+    //         answer: false,
+    //         answerDetail: "John the Baptist used the metaphor of fruitfulness (Matthew 3:7-10)"
+    //     },
+    //     {
+    //         questionId: 10,
+    //         questionText: "John the Baptist warned the Israelites not to think that they would be saved because they had Abraham as their ancestor.",
+    //         answer: true,
+    //         answerDetail: "(Matthew 3:9-10)"
+    //     },
+    //     {
+    //         questionId: 21,
+    //         questionText: "When Jesus heard that John was in prison, he left Nazareth and went to the region of Zebulun and Naphtali.",
+    //         answer: true,
+    //         answerDetail: "(Matthew 4:13)"
+    //     },
+    //     {
+    //         questionId: 24,
+    //         questionText: "When Jesus first sent out his disciples, they only gathered in the area of ​​Israel for preaching.",
+    //         answer: true,
+    //         answerDetail: "(Matthew 10:5-6)"
+    //     },
+    //     {
+    //         questionId: 27,
+    //         questionText: "In the Sermon on the Mount in Matthew 5, Jesus said that whoever breaks one of the commandments will be called the greatest in the kingdom of heaven.",
+    //         answer: false,
+    //         answerDetail: "Jesus said whoever breaks one of the commandments will be called the least in the kingdom of heaven (Matthew 5:19)"
+    //     },
+    //     {
+    //         questionId: 30,
+    //         questionText: "John and James were casting their nets for fishing when Jesus called them.",
+    //         answer: false,
+    //         answerDetail: "They are mending the net on the boat (Matthew 4:21-22)"
+    //     },
+    //     {
+    //         questionId: 46,
+    //         questionText: "In Matthew 12, Jesus used soil as a metaphor to tell the difference between good and evil people.",
+    //         answer: false,
+    //         answerDetail: "Jesus used the parable of the fruit of a tree to distinguish between good and evil people (Matthew 12:33-36)"
+    //     },
+    // ]
 
 
    
@@ -258,13 +259,21 @@ export default function BibleQuiz() {
             }}>
                 {/* Game Guide in the top-right corner */}
                 {isGuideVisible && (
-                <div style={{ position: "absolute", top: "20px", right: "20px" }}>
+                <div style={{ 
+                            position: "absolute", 
+                            top: "10px",
+                            right: "10px",
+                            zIndex: 10,
+                            maxWidth: "20vw" 
+                            }} className="w-11/12 sm:w-auto">
                     <GameGuide returnUrl="/biblequiz" />
                 </div>
                 )}
-                <div className='text-5xl font-bold p-3 m-3'>Bible OX Challenge</div>
+                <div className='text-3xl sm:text-5xl font-bold p-2 sm:p-3 m-2 sm:m-3 text-center w-full'>
+                    Bible OX Challenge
+                </div>
                 <CountDownTimer 
-                    secLimit = {timeLimit} 
+                    secLimit = {tLimit} 
                     visible = {isTimerVisible} 
                     running = {isTimerRunning} 
                     timeoutFn = {() => timeUpfunction() }
@@ -293,12 +302,14 @@ export default function BibleQuiz() {
                         imgSrc={ right_btn_img } 
                         onClickFn={() => getShowAnswer(true)} 
                         visible={isGameStarted && !isConfirmed}
+                        className="w-32 sm:w-40"
                     />
                     <ImageButton
                         btnLabel="Wrong"
                         imgSrc={ wrong_btn_img } 
                         onClickFn={() => getShowAnswer(false)}
                         visible={isGameStarted && !isConfirmed}
+                        className="w-32 sm:w-40"
                     />
                 </div>
                 <AnswerBox
@@ -325,7 +336,9 @@ export default function BibleQuiz() {
                     round = {round}
                     visible = {isGameOver}
                 />
-                <HomeButton/> 
+                <div className="w-full flex justify-center mt-4">
+                    <HomeButton />
+                </div>
             </main>
         </div>
     );
