@@ -83,16 +83,18 @@ const GameGuide = ({ returnUrl = '/' }) => {
 
   return (
     <div>
-      <div className="group rounded-lg border border-transparent px-5 py-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:border-green-100 hover:bg-green-100/50" 
+      <div className="group rounded-lg border border-transparent px-5 py-4 transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:border-green-500 hover:bg-green-100/50" 
         onClick={handleOpenModal}>
-          <h2 className={`mb-3 text-3xl font-bold text-green-600`}>
-            Guide
-          </h2>       
-          <img className="rounded-md opacity-30 object-cover ease-in-out duration-300 group-hover:-rotate-12 group-hover:scale-120 group-hover:opacity-60" 
-            src={ plant } 
-            width={80} 
-            height={160} 
-            alt="Plant"/>   
+          <div className="flex flex-col items-center">
+            <h2 className={`mb-3 text-2xl sm:text-3xl font-bold text-green-600`}>
+              Guide
+            </h2>       
+            <img className="rounded-md opacity-30 object-cover ease-in-out duration-300 group-hover:-rotate-12 group-hover:scale-120 group-hover:opacity-60 w-20 sm:w-28 md:w-40 max-w-full h-auto px-1 py-1 sm:px-3 sm:py-2" 
+              src={ plant } 
+              // width={80} 
+              // height={160} 
+              alt="Plant"/> 
+          </div>  
       </div>
       {isModalOpen && (
         <div className={`modal ${isModalOpen ? 'modal-open' : ''}`}>
