@@ -23,10 +23,10 @@ export default function ResultSummary({ score, round, visible }) {
 
         return (
             <div className="flex flex-col items-center justify-between bg-green-300/80 border-indigo-900 border-2 rounded-md p-2">
-                <div className='text-5xl font-bold p-1 m-1'>You have completed {round} rounds</div>
-                <div className='text-5xl font-bold p-1 m-1'>Total Score is {score} </div>
-                <div className='text-5xl text-blue-800 font-bold p-1 m-1'> { endStatement } </div>
-                <div className='text-5xl text-blue-800 font-bold p-1 m-1'> { endStatement2 } </div>
+                <div className='text-2xl sm:text-4xl font-bold p-1 m-1'>You have completed {round} rounds</div>
+                <div className='text-2xl sm:text-4xl font-bold p-1 m-1'>Total Score is {score} </div>
+                <div className='text-2xl sm:text-4xl text-blue-800 font-bold p-1 m-1'> { endStatement } </div>
+                <div className='text-2xl sm:text-4xl text-blue-800 font-bold p-1 m-1'> { endStatement2 } </div>
             </div>
         );
     }
